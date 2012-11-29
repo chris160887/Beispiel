@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BeispielAppDelegate : NSObject <UIApplicationDelegate>
+@class RootTableViewController;
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@interface BeispielAppDelegate : NSObject <UIApplicationDelegate>{
+    RootTableViewController *_rootController;
+    UINavigationController *_navigationController;
+    UIWindow *_window;
+}
 
 @end

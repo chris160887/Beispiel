@@ -7,15 +7,18 @@
 //
 
 #import "BeispielAppDelegate.h"
+#import "RootTableViewController.h"
 
 @implementation BeispielAppDelegate
 
-@synthesize window = _window;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
+    _rootController = [[RootTableViewController alloc]init];
+    _navigationController = [[UINavigationController alloc]initWithRootViewController:_rootController];
+    _window = [[UIWindow alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    [_window addSubview:[_navigationController view]];
+    [_window makeKeyAndVisible];
+   
     return YES;
 }
 
@@ -61,6 +64,8 @@
 - (void)dealloc
 {
     [_window release];
+    [_rootController release];
+    [_navigationController release];
     [super dealloc];
 }
 
